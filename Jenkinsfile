@@ -19,7 +19,9 @@ pipeline {
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '*/main']],
-                    userRemoteConfigs: [[url: "${GITHUB_URL}"]]
+                    userRemoteConfigs: [[
+                url: "${GITHUB_URL}",
+                credentialsId: 'roseaw-dockerhub'
                 ])
             }
         }
